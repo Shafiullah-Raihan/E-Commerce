@@ -1,0 +1,25 @@
+{% extends 'admin/base.html' %}
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="old_pass" class="form-label">Old Password</label>
+            <input type="password" name="old_pass" class="form-control" id="old_pass" placeholder="Insert Old Password">            
+        </div>
+        <div class="mb-3">
+            <label for="new_pass" class="form-label">New Password</label>
+            <input type="password" name="new_pass" class="form-control" id="new_pass" placeholder="Insert New Password">
+        </div>
+        <div class="mb-3">
+            <label for="confirm_pass" class="form-label">Confirm Password</label>
+            <input type="password" name="confirm_pass" class="form-control" id="confirm_pass" placeholder="Insert Confirm Password">
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+{% endblock %}

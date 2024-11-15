@@ -1,0 +1,35 @@
+{% extends 'admin/base.html' %}
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+ 
+<div class="container">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="first_name" class="form-label">First Name</label>
+            <input type="text" name="first_name" value="{{user_info.first_name}}" class="form-control" id="first_name" placeholder="Insert First Name">            
+        </div>
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Last Name</label>
+            <input type="text" name="last_name" value="{{user_info.last_name}}" class="form-control" id="last_name" placeholder="Insert Last Name">            
+        </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">User Name</label>
+            <input type="text" name="username" value="{{user_info.username}}" class="form-control" id="username" >            
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">User Email</label>
+            <input type="email" name="email" value="{{user_info.email}}" class="form-control" id="email" >            
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">User Pic</label>
+            <img src="/media/{{user_info.user_image}}" alt="" style="width: 100px; height: 100px;">
+            <input type="file" name="image" class="form-control" id="image" >
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'admin/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+ 
+<div class="container">
+    <form action="{% url 'cat_store' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="first_name" class="form-label">Category Name</label>
+            <input type="text" name="cat_name"  class="form-control" id="first_name" placeholder="Insert Category Name" required>            
+        </div>        
+        <div class="mb-3">
+            <label for="image" class="form-label">Category Pic</label>
+            <input type="file" name="image" class="form-control" id="image" >
+        </div>
+        <!-- {{ my_formset|crispy }} -->
+  
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+</div>
+{% load sweetify %}
+{% sweetify %}
+{% endblock %}

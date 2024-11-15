@@ -1,0 +1,40 @@
+{% extends 'admin/base.html' %}
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Old Price</th>
+                <th scope="col">New Price</th>
+                <th scope="col">description</th>
+                <th scope="col">Images</th>
+                <th scope="col">Acction</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in  product_all%}
+            <tr>
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.product_name}}</td>
+                <td>{{i.cat.cat_name}}</td>
+                <td>{{i.product_old_price}}</td>
+                <td>{{i.product_new_price}}</td>
+                <td>{{i.product_description}}</td>
+                {% for j in i.prod.all %}
+                <td><img src="/media/{{j.product_image}}" alt="" width="100px"></td>
+                {% endfor %}
+                <td>Delete</td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
